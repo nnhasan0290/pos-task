@@ -15,7 +15,7 @@ const initialState = {
   products: modifiedArr,
   billType: "option-1",
   customerType: "option-1",
-  phoneNumber: "",
+  phoneNumber: "+8801521408381",
   total: findTotalAmount(modifiedArr),
   confirmed: false,
 };
@@ -27,6 +27,11 @@ const reducer = (state, action) => {
     return {
       ...state,
       total: findTotalAmount(modifiedArr),
+    }
+    case "SET NUMBER":
+    return {
+      ...state,
+      phoneNumber: action.payload,
     }
 
     case "CONFIRM ORDER": 
