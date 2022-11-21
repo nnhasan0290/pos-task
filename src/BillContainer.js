@@ -2,7 +2,7 @@ import { OrderState } from "./ContextProvider";
 
 const BillContainer = () => {
   const {
-    state: { total, billType, customerType, phoneNumber },
+    state: { total, confirmed },
     dispatch,
   } = OrderState();
 
@@ -11,7 +11,7 @@ const BillContainer = () => {
       <div className="bill__data">
         <div>
           <p>bill type</p>
-          <select value={billType} name="" id="">
+          <select  name="" id="">
             <option value="option-1">option-1</option>
             <option value="option-2">option-2</option>
             <option value="option-3">option-3</option>
@@ -19,7 +19,7 @@ const BillContainer = () => {
         </div>
         <div>
           <p>Customer type</p>
-          <select name="" id="" value={customerType}>
+          <select name="" id="" >
             <option value="option-1">option-1</option>
             <option value="option-2">option-2</option>
             <option value="option-3">option-3</option>
@@ -45,14 +45,25 @@ const BillContainer = () => {
           <img src="/imgs/Cash.png" alt="" />
         </div>
       </div>
-      <button
-        className="pay__button"
-        onClick={() => {
-          dispatch({ type: "CONFIRM ORDER" });
-        }}
-      >
-        Pay Now
-      </button>
+      {
+        !confirmed ? (
+          <button
+          className="pay__button"
+          onClick={() => {
+            dispatch({ type: "CONFIRM ORDER" });
+          }}
+        >
+          Pay Now
+        </button>
+        ) : (
+          <button
+          className="pay__button"
+        >
+          Confirm
+        </button>
+        )
+      }
+     
     </div>
   );
 };

@@ -22,8 +22,9 @@ const confirmedOrders = [
 ];
 
 const ConfirmOrder = () => {
-  const data = OrderState();
-  console.log(data);
+  const {
+    state: { total },
+  } = OrderState();
   return (
     <>
       <div className="pay__now">
@@ -39,7 +40,7 @@ const ConfirmOrder = () => {
           </div>
           <div className="pay__input__item">
             <label htmlFor="">Amount</label>
-            <input type="text" defaultValue="1000" />
+            <input type="text" defaultValue={total} />
           </div>
         </div>
         <div className="add__payment__btn">
@@ -63,8 +64,8 @@ const ConfirmOrder = () => {
         ))}
       </div>
       <div className="confirm__total">
-        <p>Total</p>
-        <h3>$3734</h3>
+        <p>Total:</p>
+        <h3>${total}</h3>
       </div>
     </>
   );

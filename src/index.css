@@ -152,3 +152,14 @@
     color: white;
     cursor: pointer;
 }
+
+.confirm__total{
+    background-color: white;
+    margin: 1rem;
+    border-radius: 5px;
+    padding: .5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
